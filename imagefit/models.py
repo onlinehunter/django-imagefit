@@ -82,7 +82,7 @@ class Image(object):
         """
         if self.cache and not self.is_cached:
             image_str = BytesIO()
-            self.pil.save(image_str, ext_to_format(self.cached_name))
+            self.pil.save(image_str, ext_to_format(self.cached_name), quality=90)
             self.cache.set(self.cached_name, image_str.getvalue())
             image_str.close()
 
